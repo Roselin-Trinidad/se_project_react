@@ -22,6 +22,7 @@
 
 .modal__close {
     background-image: url('../../images/closing-logo.svg');
+    object-fit: cover;
     width: 20px;
     height: 20px;
     position: absolute;

@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'Cabinent Grotesk-Bold';
+    src: url('../../vendor/cabinet-grotesk/CabinetGrotesk-Bold.otf') format('opentype');
+}
+
+.modal__content_type_preview {
+    max-width: 498px;
+    max-height: 610px;
+    padding: 0;
+    border-radius: 16px;
+}
+
+.modal__close_type_preview {
+    background-image: url('../../images/closing-logo-preview.svg');
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+}
+
+.modal__image {
+    max-width: 498px;
+    max-height: 498px;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 16px 16px 0 0;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.modal__image-info {
+    padding-left: 32px;
+    font-family: 'Cabinet Grotesk-Bold', 'Ariel', sans-serif;
+    line-height: 1.2;
+    letter-spacing: 0%;
+}
+
+.modal__image-name {
+    font-size: 20px;
+    margin: 20px 0 12px;
+}
+
+.modal__weather {
+    font-size: 20px;
+    margin: 0;
+    padding-bottom: 32px;
+}

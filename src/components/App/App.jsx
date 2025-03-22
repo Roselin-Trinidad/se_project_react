@@ -3,13 +3,21 @@ import './App.css'
 import Header from '../Header/Header'
 import Main from '../Main/Main'
 import ModalWithForm from '../ModalWithForm/ModalWithForm'
+import ItemModal from '../ItemModal/ItemModal'
 
 function App() {
   const [weatherData, setWeatherData] = useState({ type: "cold" })
-  const [activeModal, setActiveModal] = useState("")
+  const [activeModal, setActiveModal] = useState("");
+  const [selectedCard, setSelectedCard] = useState({});
   
   const handleAddClick = () => {
     setActiveModal("add-garment");
+  }
+
+  const handleCardClick = (card) => {
+    setActiveModal("preview-garment");
+    setSelectedCard(card);
+
   }
 
   const closeActiveModal = () => {
@@ -26,13 +34,13 @@ function App() {
     <div className="app">
       <div className="app__content">
         <Header handleAddClick={handleAddClick}/>
-        <Main weatherData={weatherData} />
+        <Main weatherData={weatherData} handleCardClick={handleCardClick} />
       </div>
       <ModalWithForm 
         title="New garment" 
         buttonText="Add garment"
         activeModal={activeModal}
-        handleCloseClick={closeActiveModal}
+        handleClose={closeActiveModal}
         onSubmit={submitGarment}>
       <label htmlFor="name" className="modal__label">
           Name
@@ -64,7 +72,8 @@ function App() {
               <input id="cold" type="radio" name="modal__radio-input"/> Cold
           </label>
         </fieldset>
-      </ModalWithForm> 
+      </ModalWithForm>
+      <ItemModal activeModal={activeModal} card={selectedCard} handleClose={closeActiveModal} /> 
     </div>
   )
 }
