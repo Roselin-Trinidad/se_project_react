@@ -80,15 +80,42 @@ function App() {
               required/>
       </label>
       <fieldset className="modal__radio-buttons">
-          <legend className="modal__legend">Select the weather type:</legend>
-          <label htmlFor="hot" className={`modal__label modal__input_type_radio ${selectedWeather === "hot" && "modal__input_type_radio_checked"}`}>
-              <input id="hot" type="radio" name="modal__radio-input" checked={selectedWeather === "hot"} onChange={handleWeatherSelect}/> Hot
+          <legend 
+            className="modal__legend">
+              Select the weather type:
+            </legend>
+          <label 
+            htmlFor="hot" 
+            className={`modal__label modal__input_type_radio ${selectedWeather === "hot" 
+              && "modal__input_type_radio_checked"}`}>
+              <input 
+                id="hot"
+                 type="radio" 
+                 name="modal__radio-input" 
+                 checked={selectedWeather === "hot"} 
+                 onChange={handleWeatherSelect}/> Hot
           </label>
-          <label htmlFor="warm" className={`modal__label modal__input_type_radio ${selectedWeather === "warm" && "modal__input_type_radio_checked"}`}>
-              <input id="warm" type="radio" name="modal__radio-input" checked={selectedWeather === "warm"} onChange={handleWeatherSelect}/> Warm
+          <label 
+            htmlFor="warm" 
+            className={`modal__label modal__input_type_radio ${selectedWeather === "warm" 
+              && "modal__input_type_radio_checked"}`}>
+              <input 
+                id="warm" 
+                type="radio" 
+                name="modal__radio-input" 
+                checked={selectedWeather === "warm"} 
+                onChange={handleWeatherSelect}/> Warm
           </label>
-          <label htmlFor="cold" className={`modal__label modal__input_type_radio ${selectedWeather === "cold" && "modal__input_type_radio_checked"}`}>
-              <input id="cold" type="radio" name="modal__radio-input" checked={selectedWeather === "cold"} onChange={handleWeatherSelect}/> Cold
+          <label 
+            htmlFor="cold" 
+            className={`modal__label modal__input_type_radio ${selectedWeather === "cold" 
+            && "modal__input_type_radio_checked"}`}>
+              <input 
+                id="cold" 
+                type="radio" 
+                name="modal__radio-input" 
+                checked={selectedWeather === "cold"} 
+                onChange={handleWeatherSelect}/> Cold
           </label>
         </fieldset>
       </ModalWithForm>
