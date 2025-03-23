@@ -1,35 +1,35 @@
 @font-face {
-    font-family: 'Cabinet Grotesk-Bold';
-    src: url('../../vendor/cabinet-grotesk/CabinetGrotesk-Bold.otf') format('opentype');
+  font-family: "Cabinet Grotesk-Bold";
+  src: url("../../vendor/cabinet-grotesk/CabinetGrotesk-Bold.otf")
+    format("opentype");
 }
 
 .card {
-    position: relative;
-    width: 323px;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
+  position: relative;
+  width: 323px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
 }
 
 .card__name {
-    position: absolute;
-    top: 15px;
-    font-family: 'Cabinet Grotesk-Bold', 'Ariel', sans-serif;
-    font-size: 16px;
-    line-height: 1.25;
-    gap: 12px;
-    color: rgba(0, 0, 0, 0.6);
-    background-color: rgb(255, 255, 255);
-    text-align: center;
-    margin: 0;
-    padding: 0 12px;
-    
+  position: absolute;
+  top: 15px;
+  font-family: "Cabinet Grotesk-Bold", "Ariel", sans-serif;
+  font-size: 16px;
+  line-height: 1.25;
+  gap: 12px;
+  color: rgba(0, 0, 0, 0.6);
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+  margin: 0;
+  padding: 0 12px;
 }
 
 .card__image {
-    width: 100%;
-    object-fit: cover;
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    border-radius: 15px;
+  width: 100%;
+  object-fit: cover;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
 }

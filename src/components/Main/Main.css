@@ -1,21 +1,22 @@
 @font-face {
-    font-family: 'Cabinet Grotesk-Bold';
-    src: url('../../vendor/cabinet-grotesk/CabinetGrotesk-Bold.otf') format('opentype');
+  font-family: "Cabinet Grotesk-Bold";
+  src: url("../../vendor/cabinet-grotesk/CabinetGrotesk-Bold.otf")
+    format("opentype");
 }
 
 .cards__list {
-    display: flex;
-    flex-wrap: wrap;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    gap: 21px;
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  gap: 21px;
 }
 
 .cards__text {
-    font-family: 'Cabinet Grotesk-Bold', 'Ariel', sans-serif;
-    font-size: 20px;
-    line-height: 1.25;
-    padding: 40px 0 34px 0;
-    margin: 0;
+  font-family: "Cabinet Grotesk-Bold", "Ariel", sans-serif;
+  font-size: 20px;
+  line-height: 1.25;
+  padding: 40px 0 34px 0;
+  margin: 0;
 }
