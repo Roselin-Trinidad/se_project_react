@@ -29,7 +29,6 @@
     top: 27px;
     right: 28px;
     border: none;
-
 }
 
 .modal__title {
@@ -69,7 +68,7 @@
     opacity: 50%;
 }
 
-.modal__input_type_radio-checked {
+.modal__input_type_radio_checked {
     opacity: 100%;
 }
 

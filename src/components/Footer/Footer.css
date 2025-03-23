@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'Cabinet Grotesk-Medium';
+    src: url('../../vendor/cabinet-grotesk/CabinetGrotesk-Medium.otf') format('opentype');
+}
+
+.footer {
+    display:flex;
+    justify-content: space-between;
+    max-width: 1360px;
+    width: 100%;
+    padding: 85px 0 24px;
+    margin: 0;
+    align-items: center;
+    font-family: 'Cabinet Grotesk-Medium', 'Ariel', sans-serif;
+    font-size: 16px;
+    line-height: 1.25px;
+}
+

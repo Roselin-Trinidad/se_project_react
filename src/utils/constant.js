@@ -1,3 +1,66 @@
+export const weatherOptions = [
+  {
+    day: true,
+    condition: "clear",
+    url: new URL ("../images/day/day-clear.svg", import.meta.url).href
+  },
+  {
+    day: true,
+    condition: "clouds",
+    url: new URL ("../images/day/day-cloudy.svg", import.meta.url).href
+  },
+  {
+    day: true,
+    condition: "fog",
+    url: new URL ("../images/day/day-fog.svg", import.meta.url).href
+  },
+  {
+    day: true,
+    condition: "rain",
+    url: new URL ("../images/day/day-rain.svg", import.meta.url).href
+  },
+  {
+    day: true,
+    condition: "snow",
+    url: new URL ("../images/day/day-snow.svg", import.meta.url).href
+  },
+  {
+    day: true,
+    condition: "storm",
+    url: new URL ("../images/day/day-storm.svg", import.meta.url).href
+  },
+  {
+    day: false,
+    condition: "clear",
+    url: new URL ("../images/night/night-clear.svg", import.meta.url).href
+  },
+  {
+    day: false,
+    condition: "clouds",
+    url: new URL ("../images/night/night-cloudy.svg", import.meta.url).href
+  },
+  {
+    day: false,
+    condition: "fog",
+    url: new URL ("../images/night/night-fog.svg", import.meta.url).href
+  },
+  {
+    day: false,
+    condition: "rain",
+    url: new URL ("../images/night/night-rain.svg", import.meta.url).href
+  },
+  {
+    day: false,
+    condition: "snow",
+    url: new URL ("../images/night/night-snow.svg", import.meta.url).href
+  },
+  {
+    day: false,
+    condition: "storm",
+    url: new URL ("../images/night/night-storm.svg", import.meta.url).href
+  }
+]
+
 export const defaultClothingItems = [
     {
       _id: 0,

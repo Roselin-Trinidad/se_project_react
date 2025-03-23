@@ -15,7 +15,6 @@
 .card__name {
     position: absolute;
     top: 15px;
-    left: 50%;
     font-family: 'Cabinet Grotesk-Bold', 'Ariel', sans-serif;
     font-size: 16px;
     line-height: 1.25;
