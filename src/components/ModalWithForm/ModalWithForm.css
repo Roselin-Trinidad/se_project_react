@@ -30,6 +30,7 @@
   top: 27px;
   right: 28px;
   border: none;
+  cursor: pointer;
 }
 
 .modal__title {
@@ -61,13 +62,18 @@
   font-size: 16px;
   line-height: 1.25;
   margin-top: 24px;
+  cursor: pointer;
 }
 
 .modal__input_type_radio {
   margin-top: 12px;
   opacity: 50%;
+  
 }
 
+.modal__input_type_radio:hover {
+  cursor: pointer;
+}
 .modal__input_type_radio_checked {
   opacity: 100%;
 }
@@ -113,4 +119,5 @@
   font-size: 16px;
   line-height: 1.25;
   padding: 8px 16px;
+  cursor: pointer;
 }

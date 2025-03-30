@@ -39,6 +39,7 @@
   font-size: 20px;
   line-height: 1.2;
   margin-right: 20px;
+  cursor: pointer;
 }
 
 .header__username {
@@ -46,4 +47,9 @@
   font-size: 20px;
   line-height: 1;
   margin-right: 88px;
+}
+
+.header__link {
+  color: #000000;
+  text-decoration: none; /* Remove underline from links */
 }
