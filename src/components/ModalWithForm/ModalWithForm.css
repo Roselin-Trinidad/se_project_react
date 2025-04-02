@@ -33,6 +33,10 @@
   cursor: pointer;
 }
 
+.modal__close_item_card {
+  background-color:transparent;
+}
+
 .modal__title {
   margin: 0;
   font-family: "Cabinet Grotesk-Bold", "Ariel", sans-serif;

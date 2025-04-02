@@ -1,5 +1,6 @@
 import "./ItemCard.css";
 function ItemCard({ item, onCardClick }) {
+  console.log("ItemCard recieved:", item);
   const handleCardClick = () => {
     onCardClick(item);
   };

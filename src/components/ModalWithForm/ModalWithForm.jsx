@@ -13,13 +13,13 @@ function ModalWithForm({
       <div className="modal__content">
         <h2 className="modal__title">{title}</h2>
         <button
-          className="modal__close"
+          className="modal__close modal__close_item_card"
           onClick={handleClose}
           type="button"
         ></button>
-        <form className="modal__form">
+        <form className="modal__form" onSubmit={onSubmit}>
           {children}
-          <button onClick={onSubmit} className="modal__submit" type="submit">
+          <button  className="modal__submit" type="submit">
             {buttonText}
           </button>
         </form>
