@@ -21,7 +21,6 @@ function App() {
   });
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
-  const [selectedWeather, setSelectedWeather] = useState("");
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState(defaultClothingItems);
 
@@ -59,10 +58,6 @@ function App() {
       .catch(console.error);
   }, []);
 
-  const handleWeatherSelect = (e) => {
-    setSelectedWeather(e.target.id);
-
-  };
 
   return (
     <CurrentTemperatureUnitContext.Provider value={{ currentTemperatureUnit, handleToggleSwitchChange}}>
@@ -84,7 +79,6 @@ function App() {
       </div>
       <AddItemModal
         handleClose={closeActiveModal}
-        onChange={handleWeatherSelect}
         isOpen={activeModal === "add-garment"}
         onAddItemModalSubmit={handleAddItemModelSubmit} />
       <ItemModal
