@@ -1,10 +1,14 @@
+import { useState } from "react";
+import { useEffect } from "react";
 import "./AddItemModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import { useState } from "react";
+
 function AddItemModal({ isOpen, onAddItemModalSubmit, handleClose }) {
   const [selectedWeather, setSelectedWeather] = useState("");
   const [name, setName] = useState("");
-  const [link, setLink] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const [disabled, setDisabled] = useState(true);
+  
   
   const handleWeatherSelect = (e) => {
     setSelectedWeather(e.target.value);
@@ -15,16 +19,24 @@ function AddItemModal({ isOpen, onAddItemModalSubmit, handleClose }) {
   };
   
   const handleImageURLChange = (e) => {
-    setLink(e.target.value);
+    setImageUrl(e.target.value);
   }
 
   const submitGarment = (e) => {
     e.preventDefault ();
-    onAddItemModalSubmit({ name, link, selectedWeather});
+    onAddItemModalSubmit({ name, imageUrl, selectedWeather});
     setName("");
-    setLink("");
+    setImageUrl("");
     setSelectedWeather(""); 
   };
+
+  useEffect(() => {
+    if (name && imageUrl && selectedWeather) {
+      setDisabled(false);
+    } else {
+      setDisabled(true);
+    }
+  }, [name, imageUrl, selectedWeather])
 
   return (
     <ModalWithForm
@@ -34,6 +46,7 @@ function AddItemModal({ isOpen, onAddItemModalSubmit, handleClose }) {
       onSubmit={submitGarment}
       onChange={handleWeatherSelect}
       isOpen={isOpen}
+      disabled={disabled}
     >
       <label htmlFor="name" className="modal__label">
         Name
@@ -49,15 +62,15 @@ function AddItemModal({ isOpen, onAddItemModalSubmit, handleClose }) {
           required
         />
       </label>
-      <label htmlFor="link" id="link" className="modal__label">
+      <label htmlFor="link" id="imageUrl" className="modal__label">
         Image
         <input
           type="url"
-          id="link"
+          id="imageUrl"
           className="modal__input"
           placeholder="Image Url"
           onChange={handleImageURLChange}
-          value={link}
+          value={imageUrl}
           required
         />
       </label>

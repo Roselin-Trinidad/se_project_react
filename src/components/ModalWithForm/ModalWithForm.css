@@ -117,11 +117,20 @@
   height: 36px;
   border-radius: 4px;
   border: none;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: #000000;
   color: #ffffff;
   font-family: "Cabinet Grotesk-Bold", "Ariel", sans-serif;
   font-size: 16px;
   line-height: 1.25;
   padding: 8px 16px;
   cursor: pointer;
+}
+
+.modal__submit:hover {
+  background-color:rgba(0, 0, 0, 0.6);
+}
+
+.modal__submit_disabled {
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: not-allowed;
 }
