@@ -14,7 +14,8 @@ function getItems() {
     });
 }
 
-function addItem({ name, imageUrl, selectedWeather }) {
+function addItem({ name, imageUrl, weather: selectedWeather }) {
+    console.log('Sending to server:', { name, imageUrl, weather: selectedWeather })
     return fetch(`${baseUrl}/items/`, {
       method: "POST",
       headers: {
@@ -23,7 +24,7 @@ function addItem({ name, imageUrl, selectedWeather }) {
       body: JSON.stringify({
         name,
         imageUrl,
-        selectedWeather,
+        weather: selectedWeather,
       }),
     }).then((res) => {
       if (res.ok) {
@@ -34,11 +35,17 @@ function addItem({ name, imageUrl, selectedWeather }) {
 }
 
 function deleteItem(id) {
-    return fetch(`${baseUrl}/items/:${id}`, {
+    return fetch(`${baseUrl}/items/${id}`, {
     method: "DELETE",
+    headers: {
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+        id,
+    }),
   })
   .then((res) => {
-    console.log(`${baseUrl}/items/:${id}`);
+    console.log(`${baseUrl}/items/${id}`);
     if (res.ok) {
         return res.json();
       }

@@ -24,7 +24,7 @@ function AddItemModal({ isOpen, onAddItemModalSubmit, handleClose }) {
 
   const submitGarment = (e) => {
     e.preventDefault ();
-    onAddItemModalSubmit({ name, imageUrl, selectedWeather});
+    onAddItemModalSubmit({ name, imageUrl, weather: selectedWeather});
     setName("");
     setImageUrl("");
     setSelectedWeather(""); 
@@ -37,14 +37,13 @@ function AddItemModal({ isOpen, onAddItemModalSubmit, handleClose }) {
       setDisabled(true);
     }
   }, [name, imageUrl, selectedWeather])
-
+  //console.log("AddItem rendered", { name, imageUrl, selectedWeather });
   return (
     <ModalWithForm
       title="New garment"
       buttonText="Add garment"
       handleClose={handleClose}
       onSubmit={submitGarment}
-      onChange={handleWeatherSelect}
       isOpen={isOpen}
       disabled={disabled}
     >

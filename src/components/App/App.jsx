@@ -39,8 +39,7 @@ function App() {
     setSelectedCard(card);
   };
 
-  const handleDeleteModal = (id) => {
-    setSelectedCard((prev) => ({ ...prev, _id: id}));
+  const handleDeleteModal = () => {
     setActiveModal("delete-garment");
   };
 
@@ -48,12 +47,12 @@ function App() {
     setActiveModal("");
   };
 
-  const handleAddItemModelSubmit = ({ name, imageUrl, selectedWeather }) => {
-    addItem({ name, imageUrl, selectedWeather})
-    .then(() => {
+  const handleAddItemModelSubmit = ({ name, imageUrl, weather: selectedWeather }) => {
+    addItem({ name, imageUrl, weather: selectedWeather})
+    .then((newItem) => {
+      console.log('New item from server:', newItem); 
       setClothingItems((prevItems) => [
-        { name, imageUrl, weather: selectedWeather }, 
-        ...prevItems]);
+        newItem, ...prevItems]);
       closeActiveModal();
     })
     
@@ -62,9 +61,8 @@ function App() {
   const handleDeleteItem = (id) => {
     deleteItem(id)
       .then(() => {
-        console.log('Deleting item with ID:', id)
         setClothingItems((prevItems) =>
-          prevItems.filter((item) => item._id !== id))
+          prevItems.filter((item) => item._id !== selectedCard._id))
         setActiveModal("");
       })
       .catch(console.error);
@@ -126,6 +124,7 @@ function App() {
         isOpen={activeModal === "delete-garment"}
         handleClose={closeActiveModal}
         onDelete={handleDeleteItem}
+        card={selectedCard}
       />
     </div>
     </CurrentTemperatureUnitContext.Provider>

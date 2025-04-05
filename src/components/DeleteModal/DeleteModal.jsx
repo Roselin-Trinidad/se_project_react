@@ -1,6 +1,6 @@
 import "./DeleteModal.css";
 
-function DeleteModal({ isOpen, handleClose, onDelete}) {
+function DeleteModal({ isOpen, handleClose, onDelete, card}) {
   return (
     <div className={`modal ${isOpen ? "modal_opened" : ""}`}>
       <div className="modal__content modal__content_type_delete">
@@ -13,7 +13,7 @@ function DeleteModal({ isOpen, handleClose, onDelete}) {
           Are you sure you want to delete this item? <br />
           This action is irreversible.
         </p>
-        <button className="modal__delete-button" type="button" onClick={onDelete}>
+        <button className="modal__delete-button" type="button" onClick={() => onDelete(card._id)}>
             Yes, delete item
         </button>
         <button onClick={handleClose} 
