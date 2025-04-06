@@ -1,13 +1,18 @@
 const baseUrl = "http://localhost:3001";
 
+export function checkResponse(res) {
+  if (res.ok) {
+    return res.json(); 
+  }
+  return Promise.reject(`Error: ${res.status}`);
+}
+
+function request(url, options) {
+  return fetch(url, options).then(checkResponse);
+}
+
 function getItems() {
-  return fetch(`${baseUrl}/items`)
-    .then((res) => {
-      if (!res.ok) {
-        return Promise.reject(`Error: ${res.status}`);
-      }
-      return res.json();
-    })
+  return request(`${baseUrl}/items`)
     .catch((err) => {
       console.error("Fetch error:", err);
       throw err;
@@ -15,8 +20,7 @@ function getItems() {
 }
 
 function addItem({ name, imageUrl, weather: selectedWeather }) {
-    console.log('Sending to server:', { name, imageUrl, weather: selectedWeather })
-    return fetch(`${baseUrl}/items/`, {
+    return request(`${baseUrl}/items/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -26,16 +30,11 @@ function addItem({ name, imageUrl, weather: selectedWeather }) {
         imageUrl,
         weather: selectedWeather,
       }),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
     });
 }
 
 function deleteItem(id) {
-    return fetch(`${baseUrl}/items/${id}`, {
+    return request(`${baseUrl}/items/${id}`, {
     method: "DELETE",
     headers: {
         "Content-Type": "application/json",
@@ -43,13 +42,6 @@ function deleteItem(id) {
     body: JSON.stringify({
         id,
     }),
-  })
-  .then((res) => {
-    console.log(`${baseUrl}/items/${id}`);
-    if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
   });
 }
 

@@ -123,7 +123,8 @@
   font-size: 16px;
   line-height: 1.25;
   padding: 8px 16px;
-  cursor: pointer;
+  padding: 0;
+
 }
 
 .modal__submit:hover {
@@ -133,4 +134,11 @@
 .modal__submit_disabled {
   background-color: rgba(0, 0, 0, 0.3);
   cursor: not-allowed;
+}
+
+.modal__error {
+  font-family: "Cabinet Grotesk-Bold", "Ariel", sans-serif;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #ff4d00;
 }

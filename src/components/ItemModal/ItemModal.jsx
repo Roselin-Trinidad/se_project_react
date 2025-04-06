@@ -1,8 +1,9 @@
 import "./ItemModal.css";
+import useModalClose from "../../hooks/useModalClose";
 
 function ItemModal({ isOpen, handleClose, card, onDelete }) {
+  useModalClose(isOpen, handleClose);
   return (
-    console.log("Full card object:", card),
     <div
       className={`modal ${isOpen ? "modal_opened" : ""}`}
     >

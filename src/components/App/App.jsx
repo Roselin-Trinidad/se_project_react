@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
@@ -12,6 +13,7 @@ import Profile from "../Profile/Profile";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import DeleteModal from "../DeleteModal/DeleteModal";
 import { getItems, deleteItem, addItem } from "../../utils/api.js";
+import useModalClose from "../../hooks/useModalClose.js";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -25,6 +27,7 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
+  const [isLoading, setIsLoading] = React.useState(false);
 
   const handleToggleSwitchChange = () => {
     setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
@@ -47,15 +50,32 @@ function App() {
     setActiveModal("");
   };
 
+  useEffect(() => {
+    if (!activeModal) return;
+    const handleEscClose = (e) => {
+      if (e.key === "Escape") {
+        closeActiveModal();
+      }
+    };
+    document.addEventListener("keydown", handleEscClose);
+    return () => {
+      document.removeEventListener("keydown", handleEscClose);
+    };
+  }, [activeModal])
+
   const handleAddItemModelSubmit = ({ name, imageUrl, weather: selectedWeather }) => {
+    setIsLoading(true);
     addItem({ name, imageUrl, weather: selectedWeather})
-    .then((newItem) => {
-      console.log('New item from server:', newItem); 
+    .then((newItem) => { 
       setClothingItems((prevItems) => [
         newItem, ...prevItems]);
+      
       closeActiveModal();
     })
-    
+    .catch(console.error)
+    .finally(() => {
+      setIsLoading(false);
+    });
   }
 
   const handleDeleteItem = (id) => {
@@ -63,7 +83,7 @@ function App() {
       .then(() => {
         setClothingItems((prevItems) =>
           prevItems.filter((item) => item._id !== selectedCard._id))
-        setActiveModal("");
+        closeActiveModal();
       })
       .catch(console.error);
   }
@@ -113,7 +133,8 @@ function App() {
       <AddItemModal
         handleClose={closeActiveModal}
         isOpen={activeModal === "add-garment"}
-        onAddItemModalSubmit={handleAddItemModelSubmit} />
+        onAddItemModalSubmit={handleAddItemModelSubmit}
+        buttonText={isLoading ? 'Saving...' : 'Add Garment'} />
       <ItemModal
         card={selectedCard}
         handleClose={closeActiveModal}
@@ -125,6 +146,7 @@ function App() {
         handleClose={closeActiveModal}
         onDelete={handleDeleteItem}
         card={selectedCard}
+        buttonText={isLoading ? 'Deleting...' : 'Yes, delete item'}
       />
     </div>
     </CurrentTemperatureUnitContext.Provider>

@@ -1,4 +1,5 @@
 import "./ModalWithForm.css";
+import useModalClose from "../../hooks/useModalClose";
 
 function ModalWithForm({
   children,
@@ -9,7 +10,8 @@ function ModalWithForm({
   isOpen,
   disabled
 }) {
-  
+  useModalClose(isOpen, handleClose);
+
   return (
     <div className={`modal ${isOpen ? "modal_opened" : ""}`}>
       <div className="modal__content">
@@ -23,7 +25,8 @@ function ModalWithForm({
           <button className={`modal__submit 
             ${disabled ? "modal__submit_disabled" : ""} `} 
             type="submit"
-            disabled={disabled}>
+            disabled={disabled}
+            >
             {buttonText}
           </button>
         </form>
