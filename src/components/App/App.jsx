@@ -13,7 +13,6 @@ import Profile from "../Profile/Profile";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import DeleteModal from "../DeleteModal/DeleteModal";
 import { getItems, deleteItem, addItem } from "../../utils/api.js";
-import useModalClose from "../../hooks/useModalClose.js";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -49,19 +48,6 @@ function App() {
   const closeActiveModal = () => {
     setActiveModal("");
   };
-
-  useEffect(() => {
-    if (!activeModal) return;
-    const handleEscClose = (e) => {
-      if (e.key === "Escape") {
-        closeActiveModal();
-      }
-    };
-    document.addEventListener("keydown", handleEscClose);
-    return () => {
-      document.removeEventListener("keydown", handleEscClose);
-    };
-  }, [activeModal])
 
   const handleAddItemModelSubmit = ({ name, imageUrl, weather: selectedWeather }) => {
     setIsLoading(true);

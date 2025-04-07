@@ -36,12 +36,12 @@ function AddItemModal({ isOpen, onAddItemModalSubmit, handleClose, buttonText })
           minLength="1"
           maxLength="30"
           onChange={handleChange}
-          value={values.name}
+          value={values.name || ""}
           required
         />
         {errors.name && <span className="modal__error">{errors.name}</span>}
       </label>
-      <label htmlFor="link" id="imageUrl" className="modal__label">
+      <label htmlFor="imageUrl" id="imageUrl" className="modal__label">
         Image
         <input
           className="modal__input"
@@ -50,7 +50,7 @@ function AddItemModal({ isOpen, onAddItemModalSubmit, handleClose, buttonText })
           id="imageUrl"
           placeholder="Image Url"
           onChange={handleChange}
-          value={values.imageUrl}
+          value={values.imageUrl || ""}
           required
         />
         {errors.imageUrl && <span className="modal__error">{errors.imageUrl}</span>}
