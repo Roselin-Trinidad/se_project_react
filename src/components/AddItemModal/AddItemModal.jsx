@@ -41,7 +41,7 @@ function AddItemModal({ isOpen, onAddItemModalSubmit, handleClose, buttonText })
         />
         {errors.name && <span className="modal__error">{errors.name}</span>}
       </label>
-      <label htmlFor="imageUrl" id="imageUrl" className="modal__label">
+      <label htmlFor="imageUrl" className="modal__label">
         Image
         <input
           className="modal__input"
