@@ -10,7 +10,7 @@ import ItemModal from "../ItemModal/ItemModal";
 import Footer from "../Footer/Footer";
 import CurrentTemperatureUnitContext from "../../context/CurrentTemperatureUnitContext";
 import Profile from "../Profile/Profile";
-import ProtectedRoute from "../ProtectedRoute.jsx";
+import ProtectedRoute from "../../context/ProtectedRoute.jsx";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import DeleteModal from "../DeleteModal/DeleteModal";
 import RegisterModal from "../RegisterModal/RegisterModal.jsx";
@@ -183,13 +183,14 @@ function App() {
               <Main
               weatherData={weatherData}
               clothingItems={clothingItems}
+              onCardClick={handleCardClick}
             /> }
             />   
             <Route 
               path="/" 
               element={<Main  
                 weatherData={weatherData} 
-                handleCardClick={handleCardClick} 
+                onCardClick={handleCardClick} 
                 clothingItems={clothingItems} /> } />
             <Route 
               path="/profile" 
@@ -217,10 +218,13 @@ function App() {
         />
         <DeleteModal 
           isOpen={activeModal === "delete-garment"}
+          isLoggedIn={isLoggedIn}
           handleClose={closeActiveModal}
           onDelete={handleDeleteItem}
           card={selectedCard}
           buttonText={isLoading ? 'Deleting...' : 'Yes, delete item'}
+          handleRegistration={handleRegisterModal}
+          handleLogIn={handleLoginModal}
         />
         <RegisterModal
           handleClose={closeActiveModal}

@@ -18,6 +18,16 @@
     height: 20px;
 }
 
+.modal__delete-buttons-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal__sign-up-buttons-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .modal__warning {
     font-family: "Cabinet Grotesk-Bold", "Ariel", sans-serif;
     font-size: 20px;
@@ -36,6 +46,7 @@
     color: #ff4d00;
     text-align: center;
     padding: 0 0 24px;
+    cursor: pointer;
 }
 
 .modal__cancel-button {
@@ -44,5 +55,30 @@
     font-family: "Cabinet Grotesk-Bold", "Ariel", sans-serif;
     font-size: 20px;
     line-height: 1.2;
-    padding: 0 0 24px;
+    text-align: center;
+    padding: 0 32px 24px 0;
+    cursor: pointer;
+    
+}
+
+.modal__sign-up-button {
+    background-color: transparent;
+    border: none; 
+    font-family: "Cabinet Grotesk-Bold", "Ariel", sans-serif;
+    font-size: 20px;
+    line-height: 1.2;
+    text-align: center;
+    padding: 0 32px 24px 0;
+    cursor: pointer;
+}
+
+.modal__log-in-button {
+    background-color: transparent;
+    border: none; 
+    font-family: "Cabinet Grotesk-Bold", "Ariel", sans-serif;
+    font-size: 20px;
+    line-height: 1.2;
+    text-align: center;
+    padding: 0 32px 24px 0;
+    cursor: pointer;
 }
