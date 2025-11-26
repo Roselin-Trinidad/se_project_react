@@ -7,7 +7,7 @@ export function checkResponse(res) {
   return Promise.reject(`Error: ${res.status}`);
 }
 
-function request(url, options) {
+export function request(url, options) {
   return fetch(url, options).then(checkResponse);
 }
 

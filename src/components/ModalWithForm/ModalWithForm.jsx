@@ -8,7 +8,9 @@ function ModalWithForm({
   handleClose,
   onSubmit,
   isOpen,
-  disabled
+  disabled,
+  handleSwitchingModal,
+  buttonSwitchingText
 }) {
   useModalClose(isOpen, handleClose);
 
@@ -22,6 +24,7 @@ function ModalWithForm({
           type="button" />
         <form className="modal__form" onSubmit={onSubmit}>
           {children}
+          <div>
           <button className={`modal__submit 
             ${disabled ? "modal__submit_disabled" : ""} `} 
             type="submit"
@@ -29,6 +32,9 @@ function ModalWithForm({
             >
             {buttonText}
           </button>
+          <button className="modal__switch-button" 
+          onClick={handleSwitchingModal}>{buttonSwitchingText}</button>
+          </div>
         </form>
       </div>
     </div>

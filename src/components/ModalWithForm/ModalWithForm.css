@@ -82,10 +82,6 @@
   opacity: 100%;
 }
 
-.modal__input_type_radio:last-child {
-  margin-bottom: 32px;
-}
-
 .modal__input {
   display: block;
   border: none;
@@ -113,7 +109,8 @@
 }
 
 .modal__submit {
-  width: 124px;
+  width: fit-content;
+  padding: 8px 16px;
   height: 36px;
   border-radius: 4px;
   border: none;
@@ -122,9 +119,7 @@
   font-family: "Cabinet Grotesk-Bold", "Ariel", sans-serif;
   font-size: 16px;
   line-height: 1.25;
-  padding: 8px 16px;
-  padding: 0;
-
+  margin-top: 32px;
 }
 
 .modal__submit:hover {
@@ -141,4 +136,16 @@
   font-size: 16px;
   line-height: 1.25;
   color: #ff4d00;
+}
+
+.modal__switch-button {
+  width: fit-content;
+  font-family: "Cabinet Grotesk-Bold", "Ariel", sans-serif;
+  font-size: 16px;
+  line-height: 0.8;
+  border: none;
+  color: rgba(0, 0, 0, 0.5);
+  background-color: transparent;
+  padding: 10px;
+  cursor: pointer;
 }

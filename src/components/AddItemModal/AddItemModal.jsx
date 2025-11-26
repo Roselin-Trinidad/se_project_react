@@ -7,7 +7,7 @@ function AddItemModal({ isOpen, onAddItemModalSubmit, handleClose, buttonText })
   const {values, handleChange, errors, isValid, resetForm} = useFormAndValidation();
   
   const submitGarment = (e) => {
-    e.preventDefault ();
+    e.preventDefault();
     onAddItemModalSubmit({ name: values.name, imageUrl: values.imageUrl, weather: values.selectedWeather });
   };
 
